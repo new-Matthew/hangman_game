@@ -1,0 +1,1 @@
+word_list = ["assign", "glide","socks","spoon","knack","toast","yearning","clever","spare","brass","napkin","grocery","chase", "remain"]
