@@ -5,24 +5,43 @@ chosen_word = random.choice(word_list)
 size_chosen_word = len(chosen_word)
 
 print(chosen_word)
-guess = input("Escolha uma letra: ").lower()
 
 placeholder = ""
 
-for position in  range(size_chosen_word):
-    placeholder += "_ "
+for position in range(size_chosen_word):
+    placeholder += "_"
 
 print(placeholder)
 
-display = ""
+correct_guesses = []
+game_over = False
 
-for letter in chosen_word:
-    if letter == guess:
-        display += letter + " "
-    else:
-        display += "_ "
+while not game_over:
 
-print(display)
+    display = ""
+    guess = input("Escolha uma letra: ").lower()
 
+    for letter in chosen_word:
+        if letter == guess:
+            display += letter
+            correct_guesses.append(guess)
+            print(letter)
 
+        elif letter in correct_guesses:
+            display += letter   
+            print(letter)
+        else:
+            display += "_"
+
+    for letter in chosen_word:
+        if display == chosen_word:
+            game_over = True
+            print("você venceu!!")
+            print(letter)
+
+    print(correct_guesses)
+    print(display)
+
+if game_over == True:
+    print("Você venceu!")
 
