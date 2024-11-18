@@ -1,10 +1,10 @@
 from hangman_words import word_list
+from hangman_arts import stages
 import random
 
 chosen_word = random.choice(word_list)
-lives = 6
 size_chosen_word = len(chosen_word)
-
+lives = 6
 placeholder = ""
 
 for position in range(size_chosen_word):
@@ -25,6 +25,7 @@ while not game_over:
             display += letter
             correct_guesses.append(guess)
 
+
         elif letter in correct_guesses:
             display += letter   
 
@@ -34,13 +35,16 @@ while not game_over:
     if guess not in chosen_word:
         lives -= 1
 
+    print(lives)
+    print(stages[lives])
+    print(display)
+
     if lives == 0:
         print("Você perdeu!")
         game_over = True
 
-    print(lives)
-    for letter in chosen_word:
-        if display == chosen_word:
-            game_over = True
-            print("você venceu!!")
+    if display == chosen_word:
+        game_over = True
+        print("você venceu!!")
  
+
